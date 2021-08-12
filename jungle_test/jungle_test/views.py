@@ -36,7 +36,7 @@ class Login(KnoxLoginView):
         return super(Login, self).post(request, format=None)
 
 
-class ListAuthors(views.APIView):
+class ListCreateAuthors(views.APIView):
     serializer_class = AuthorSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser,)
@@ -72,6 +72,48 @@ class DetailAuthors(views.APIView):
     def put(self, request, pk, format=None):
         author = self.get_object(pk)
         serializer = AuthorSerializer(author, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ListCreateArticles(views.APIView):
+    serializer_class = AuthorSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser,)
+
+    def post(self, request, format=None):
+        serializer = ArticleSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, format=None):
+        authors = Article.objects.all()
+        serializer = ArticleSerializer(authors, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class DetailArticles(views.APIView):
+    serializer_class = ArticleSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated, permissions.IsAdminUser,)
+
+    def get_object(self, pk):
+        try:
+            return Article.objects.get(pk=pk)
+        except Snippet.DoesNotExist:
+            raise Http404
+
+    def delete(self, request, pk, format=None):
+        article = self.get_object(pk)
+        article.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, pk, format=None):
+        article = self.get_object(pk)
+        serializer = ArticleSerializer(article, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
