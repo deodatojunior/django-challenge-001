@@ -118,3 +118,31 @@ class DetailArticles(views.APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class GetCategoryBySlugArticles(views.APIView):
+    serializer_class = ArticleSlugSerializer
+
+    def get(self, request, format=None):
+        cat = request.GET.get('category', "")
+        cat = str(cat)
+        articles = Article.objects.filter(category__exact=cat)
+        serializer = ArticleSlugSerializer(articles, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class GetCategoryByIdArticles(views.APIView):
+    authentication_classes = [TokenAuthentication]
+
+    def get(self, request, id,  format=None):
+        article = Article.objects.filter(id__exact=id)
+        if request.user.is_anonymous:
+            serializer = ArticleAnonymousSerializer(article, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        elif request.user.is_authenticated:
+            serializer = ArticleLoggedSerializer(article, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+

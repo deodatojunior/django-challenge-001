@@ -35,5 +35,23 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ArticleSlugSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
 
+    class Meta:
+        model = Article
+        fields = ('id', 'author', 'category', 'title', 'summary')
 
+class ArticleAnonymousSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
+
+    class Meta:
+        model = Article
+        fields = ('id', 'author', 'category', 'title', 'summary', 'firstParagraph')
+
+class ArticleLoggedSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
+
+    class Meta:
+        model = Article
+        fields = ('id', 'author', 'category', 'title', 'summary', 'firstParagraph', 'body')

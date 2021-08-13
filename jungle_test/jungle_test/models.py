@@ -12,5 +12,5 @@ class Article(models.Model):
     category = models.CharField("category", max_length=120)
     title = models.CharField("title", max_length=255)
     summary = models.CharField("Summary", max_length=300)
-    first_paragraph = models.CharField("First paragraph", max_length=355)
+    firstParagraph = models.CharField("First paragraph", max_length=355)
     body = models.TextField("body")
