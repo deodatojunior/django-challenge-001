@@ -119,7 +119,7 @@ class DetailArticles(views.APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class GetCategoryBySlugArticles(views.APIView):
+class GetByCategoryArticles(views.APIView):
     serializer_class = ArticleSlugSerializer
 
     def get(self, request, format=None):
@@ -130,7 +130,7 @@ class GetCategoryBySlugArticles(views.APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class GetCategoryByIdArticles(views.APIView):
+class GetByIdArticles(views.APIView):
     authentication_classes = [TokenAuthentication]
 
     def get(self, request, id,  format=None):

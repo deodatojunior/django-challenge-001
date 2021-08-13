@@ -9,9 +9,9 @@ urlpatterns = [
 
     path("api/admin/articles/", ListCreateArticles.as_view()),
     path("api/admin/articles/<uuid:pk>/", DetailArticles.as_view()),
-    path("api/articles/", GetCategoryBySlugArticles.as_view()),
+    path("api/articles/", GetByCategoryArticles.as_view()),
 
-    path("api/articles/<uuid:id>/", GetCategoryByIdArticles.as_view()),
+    path("api/articles/<uuid:id>/", GetByIdArticles.as_view()),
 
     path("api/sign-up/", SignUp.as_view()),
     path('api/login/', Login.as_view(), name='login'),
