@@ -12,26 +12,26 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ
-
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
-environ.Env.read_env(f"{BASE_DIR}/.env")
+env = environ.Env(
+)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY", default='django-insecure-jg4*$=oi$(u^(^$0lbj8c-v78#roajs0!51lylu9t2_(27wvds')
+SECRET_KEY = env("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG", default=True)
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=['*'])
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 
 
 # Application definition
@@ -86,14 +86,7 @@ WSGI_APPLICATION = 'jungle_test.wsgi.application'
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DB_NAME", default='postgres'),
-        "USER": env("DB_USER", default='postgres'),
-        "PASSWORD": env("DB_PASSWORD", default='postgres'),
-        "HOST": env("DB_HOST", default='127.0.0.1'),
-        "PORT": env("DB_PORT", default='5432'),
-    }
+    "default": env.db()
 }
 
 
