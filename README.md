@@ -388,6 +388,12 @@ docker-compose run web python manage.py createsuperuser
 
 Create your admin user and have access to all the requested API's.
 
+After creating the admin user, run the command below to start the API in production
+
+```
+docker-compose up
+```
+
 
 # API Links:
 - ```http://localhost/api/admin/authors/``` ou ```http://127.0.0.1/api/admin/authors/``` GET, POST, HEAD ou OPTIONS - Authors
