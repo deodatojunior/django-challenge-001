@@ -59,7 +59,7 @@ Python 3.9.6
 
 ## Docker
 
- [Link para download](https://www.docker.com/products/docker-desktop)
+ [Link for download](https://www.docker.com/products/docker-desktop)
 
 ### Windows
  *The executable for windows already contains the two dependencies*.
