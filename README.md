@@ -380,6 +380,15 @@ web_1  | Starting development server at http://0.0.0.0:8000/
 web_1  | Quit the server with CONTROL-C.
 ```
 
+In another terminal, in the same directory and path, run this command to create an administrator user:
+
+```
+docker-compose run web python manage.py createsuperuser
+```
+
+Create your admin user and have access to all the requested API's.
+
+
 # API Links:
 - ```http://localhost/api/admin/authors/``` ou ```http://127.0.0.1/api/admin/authors/``` GET, POST, HEAD ou OPTIONS - Authors
 - ```http://localhost/api/admin/articles/``` ou ```http://127.0.0.1/api/admin/articles/``` GET, POST, HEAD ou OPTIONS - Articles

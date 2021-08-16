@@ -19,8 +19,8 @@ class SignUpSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
-        user.is_superuser = True
-        user.is_staff = True
+        user.is_superuser = False
+        user.is_staff = False
         user.save()
         return user
 
