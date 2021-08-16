@@ -13,6 +13,9 @@
 - [Django Rest Framework 3.12.4](https://www.django-rest-framework.org)
 - [PostgreSQL 12](https://www.postgresql.org)
 
+#### Class Diagram
+![DER](jungle_test/diagram_jungle_test.png)
+
 ## In Development Environment
 
 ### Python 3.9:
