@@ -380,7 +380,7 @@ web_1  | Starting development server at http://0.0.0.0:8000/
 web_1  | Quit the server with CONTROL-C.
 ```
 
-In another terminal, in the same directory and path, run this command to create an administrator user:
+On the same terminal as docker-compose.yml run this command to create an administrator user:
 
 ```
 docker-compose run web python manage.py createsuperuser
