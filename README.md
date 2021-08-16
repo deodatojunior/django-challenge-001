@@ -14,7 +14,7 @@
 - [PostgreSQL 12](https://www.postgresql.org)
 
 #### Class Diagram
-![DER](jungle_test/diagram_jungle_test.png)
+![DER](jungle_test/diagram_jungle_test.jpg)
 
 ## In Development Environment
 
