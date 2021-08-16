@@ -283,7 +283,7 @@ To verify that the installation was successful, run:
 docker-compose --version
 ```
 
-##Git
+## Git
 Now, install Git:
 
 ### Ubuntu
