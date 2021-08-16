@@ -54,7 +54,7 @@ python3.9 -V
 Python 3.9.6
 ```
 
-##Docker
+## Docker
 
  [Link para download](https://www.docker.com/products/docker-desktop)
 
@@ -131,12 +131,12 @@ To verify that the installation was successful, run:
 ```
 docker-compose --version
 ```
-##Git
-###Ubuntu
+## Git
+### Ubuntu
 ```
 sudo apt-get install git-all
 ```
-###Windows
+### Windows
 [Git for Windows](https://git-scm.com/download/win)
 
 Clone the remote repository into the desired folder
@@ -144,7 +144,7 @@ Clone the remote repository into the desired folder
 git clone https://github.com/deodatojunior/django-challenge-001
 ```
 
-##Virtualenv
+## Virtualenv
 To create a virtual environment, after install Python 3.9, choose a directory where you want to place it and run the venv module as a script with the directory path:
 ```
 py -m venv path/to/dir
@@ -205,7 +205,7 @@ python manage.py runserver
 
 ## In Production Environment
 
-##Docker
+## Docker
 
  [Link for download](https://www.docker.com/products/docker-desktop)
 
@@ -286,11 +286,12 @@ docker-compose --version
 ##Git
 Now, install Git:
 
-###Ubuntu
+### Ubuntu
 ```
 sudo apt-get install git-all
 ```
-###Windows
+### Windows
+
 [Git for Windows](https://git-scm.com/download/win)
 
 
@@ -376,7 +377,7 @@ web_1  | Starting development server at http://0.0.0.0:8000/
 web_1  | Quit the server with CONTROL-C.
 ```
 
-#API Links:
+# API Links:
 - ```http://localhost/api/admin/authors/``` ou ```http://127.0.0.1/api/admin/authors/``` GET, POST, HEAD ou OPTIONS - Authors
 - ```http://localhost/api/admin/articles/``` ou ```http://127.0.0.1/api/admin/articles/``` GET, POST, HEAD ou OPTIONS - Articles
 - ```http://localhost/api/login``` ou ```http://127.0.0.1/api/login```  POST, HEAD ou OPTIONS - Login
@@ -384,7 +385,7 @@ web_1  | Quit the server with CONTROL-C.
 - ```http://localhost/api/admin/authors/{id}/``` ou ```http://127.0.0.1/api/admin/authors/{id}/``` GET, PUT, PATCH, DELETE, HEAD ou OPTIONS - Authors
 - ```http://localhost/api/admin/articles/{id}/``` ou ```http://127.0.0.1/api/admin/articles/{id}/``` GET, PUT, PATCH, DELETE, HEAD ou OPTIONS - Articles
 
-#Specials requests
+# Specials requests
 - ```http://localhost/api/articles/?category={category}/``` ou ```http://127.0.0.1/api/articles/?category={category}/``` GET, HEAD ou OPTIONS - Articles
 - ```http://localhost/api/articles/{id}/``` ou ```http://127.0.0.1/api/articles/{id}/``` GET, HEAD ou OPTIONS - Articles
 
